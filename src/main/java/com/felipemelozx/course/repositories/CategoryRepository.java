@@ -1,0 +1,8 @@
+package com.felipemelozx.course.repositories;
+
+import com.felipemelozx.course.entities.Category;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface CategoryRepository extends JpaRepository<Category, Long> {
+
+}
