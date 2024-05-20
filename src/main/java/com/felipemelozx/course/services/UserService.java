@@ -24,4 +24,8 @@ public class UserService {
         Optional<User> obg = repository.findById(id);
         return obg.get();
     }
+
+    public User insert(User obj){
+        return repository.save(obj);
+    }
 }
