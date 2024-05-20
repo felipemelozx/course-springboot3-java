@@ -2,7 +2,6 @@ package com.felipemelozx.course.services;
 
 
 import com.felipemelozx.course.entities.Category;
-import com.felipemelozx.course.entities.Category;
 import com.felipemelozx.course.repositories.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
