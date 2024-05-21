@@ -2,6 +2,8 @@ package com.felipemelozx.course.resources;
 
 import com.felipemelozx.course.entities.User;
 import com.felipemelozx.course.services.UserService;
+import com.felipemelozx.course.services.exception.ResourceNotFoundException;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -44,7 +46,11 @@ public class UserResource {
     }
     @PutMapping(value = "/{id}")
     public ResponseEntity<User> updateUser(@PathVariable Long id,@RequestBody User obj){
-        obj = service.update(id, obj);
-        return ResponseEntity.ok().body(obj);
+        try{
+            obj = service.update(id, obj);
+            return ResponseEntity.ok().body(obj);
+        }catch (EntityNotFoundException e){
+            throw new ResourceNotFoundException(id);
+        }
     }
 }
